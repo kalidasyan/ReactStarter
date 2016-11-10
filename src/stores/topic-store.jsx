@@ -1,7 +1,10 @@
 var Api = require('../utils/api');
 var Reflux = require('reflux');
+var Actions = require('../actions');
+var Actions = require('../actions');
 
 module.exports = Reflux.createStore({
+  listenables: [Actions],
   getTopics: function() {
     return Api.get('topics/defaults')
       .then(function(json){
@@ -10,6 +13,6 @@ module.exports = Reflux.createStore({
       }.bind(this));
   },
   triggerChange: function() {
-    this.trigger('change', this.topics); 
+    this.trigger('change', this.topics);
   }
 });
