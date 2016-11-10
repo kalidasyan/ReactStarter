@@ -14,7 +14,6 @@ module.exports = React.createClass({
     if(this.props.children) {
       return this.props.children
     } else {
-      console.log('TopicList');
       return <TopicList />
     }
   }

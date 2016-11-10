@@ -24,7 +24,7 @@ module.exports = React.createClass({
           Imgur Browser
         </Link>
         <ul className="nav navbar-nav navbar-right">
-          {this.renderTOpics()}
+          {this.renderTopics()}
         </ul>
       </div>
     </nav>
@@ -34,7 +34,7 @@ module.exports = React.createClass({
       topics: topics
     });
   },
-  renderTOpics: function() {
+  renderTopics: function() {
     return this.state.topics.slice(0,4).map(function(topic){
       return <li key={topic.id}>
         <Link activeClassName="active" to={"topics/" + topic.id}>
