@@ -36,6 +36,7 @@ module.exports = React.createClass({
         <div className="panel-footer">
           <h5>{this.state.image.description}</h5>
         </div>
+        <h3>Comments</h3>
         {this.state.comments ? this.renderComments() : null}
       </div>
     </div>
