@@ -17,15 +17,31 @@ module.exports = React.createClass({
   },
   render: function() {
     return <div>
-      {this.renderImage()}
+      {this.state.image ? this.renderContent() : null}
+    </div>
+  },
+  renderContent: function() {
+    return <div>
+      <div className="panel panel-default">
+        <div className="panel-heading">
+          <h4>{this.state.image.title}</h4>
+        </div>
+        <div className="panel-body">
+          {this.renderImage()}
+        </div>
+        <div className="panel-footer">
+          <h5>{this.state.image.description}</h5>
+        </div>
+      </div>
     </div>
   },
   renderImage: function() {
-    console.log(this.state.image);
-    if(this.state.image) {
-      return this.state.image.id + '-' + this.state.image.title;
+    if(this.state.image.animated) {
+      return <video preload="auto" autoPlay="autoplay" loop="loop" webkit-playsinline>
+        <source src={this.state.image.mp4} type="video/mp4"></source>
+      </video>
     } else {
-      return null;
+      return <img src={this.state.image.link} />
     }
   },
   onChange: function(event, image) {
