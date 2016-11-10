@@ -13,6 +13,7 @@ module.exports = React.createClass({
         onMouseLeave={this.handleMouseLeave}
         >
       {(this.props.animated && this.state.hovering) ? this.video() : this.image()}
+      {(this.props.animated && !this.state.hovering) ? this.icon() : null}
     </div>
   },
   image: function(){
@@ -27,6 +28,10 @@ module.exports = React.createClass({
         <source src={this.props.mp4} type='video/mp4'></source>
       </video>
     </div>
+  },
+  icon: function() {
+    //Use bootstrap built-in icon
+    return <span className="glyphicon glyphicon-play"></span>
   },
   handleMouseEnter: function() {
     this.setState({hovering: true});
